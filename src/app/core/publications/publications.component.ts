@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicationsComponent implements OnInit {
 
+  array = [6,6,4,4,5,34,1,1,4]
   constructor() { }
 
   ngOnInit(): void {

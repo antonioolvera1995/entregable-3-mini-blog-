@@ -8,7 +8,7 @@ import { SignInComponent } from './core/sign-in/sign-in.component';
 import { LoginGuard } from './shared/guards/login.guard';
 
 const routes: Routes = [
-  { path: 'publication-details', component: PublicationDetailsComponent },
+  { path: 'publication-details/:id', component: PublicationDetailsComponent },
   { path: 'sign-in', component: SignInComponent},
   { path: 'new-post', component: NewPostComponent, canActivate:[LoginGuard] },
   { path: 'login', component: LoginComponent },
