@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "entregable3-mini-blog"
+    }
+  },
+  "defaultProject": "entregable3-mini-blog",
+  "cli": {
+    "analytics": "662db172-0ae0-4d52-959d-bb97b80864b2"
+  }
 }
