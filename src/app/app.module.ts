@@ -12,6 +12,14 @@ import { NewPostComponent } from './core/new-post/new-post.component';
 import { LoginComponent } from './core/login/login.component';
 import { SignInComponent } from './core/sign-in/sign-in.component';
 import { PublicationDetailsComponent } from './core/publication-details/publication-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,11 +32,19 @@ import { PublicationDetailsComponent } from './core/publication-details/publicat
     NewPostComponent,
     LoginComponent,
     SignInComponent,
-    PublicationDetailsComponent
+    PublicationDetailsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

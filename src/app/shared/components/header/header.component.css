@@ -1,0 +1,60 @@
+
+*{
+    user-select: none;
+}
+
+.header{
+    height: 6em;
+    background-color: black;
+}
+
+.select{
+    color: rgb(192, 192, 192);
+    transition-duration:50ms ;
+}
+
+.select:active{
+    color: rgb(255, 255, 255);
+    transform: scale(1.05,1.05);
+}
+
+
+
+/* -----------Imagen de perfil------------ */
+
+.perfil{
+    display: flex;
+    width: 12em;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1em;
+}
+figure{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+
+   
+}
+
+figure >img{
+    width: 3em;
+    border-radius: 0.3em;
+}
+figure >figcaption{
+    margin-left: 1em;
+    color: white;
+    outline-style: none;
+}
+
+#name-img{
+    color: rgb(150, 150, 150);
+}
+#name-img:hover{
+    color: rgb(255, 255, 255);
+}
+
+#details{
+    color: rgb(255, 255, 255);
+}

@@ -9,7 +9,7 @@ import { LoginGuard } from './shared/guards/login.guard';
 
 const routes: Routes = [
   { path: 'publication-details', component: PublicationDetailsComponent },
-  { path: 'sign-in', component: SignInComponent , canActivate:[!LoginGuard] },
+  { path: 'sign-in', component: SignInComponent},
   { path: 'new-post', component: NewPostComponent, canActivate:[LoginGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'publication-details', component: PublicationDetailsComponent },

@@ -1,0 +1,83 @@
+main {
+  width: 100%;
+  display: flex;
+  margin-top: 5em;
+}
+
+/* -------------tags--------- */
+.tags-div-button {
+  width: 100%;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.tags-div-button > button {
+  margin-left: 1em;
+}
+
+.tags-div {
+  width: 100%;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+/* -------- */
+.tag-in {
+    user-select: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(199, 199, 199);
+
+  border-radius: 1.5em;
+  padding: 0.8em;
+  padding-left: 1.2em;
+  padding-right: 1.2em;
+}
+
+.tag-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0%;
+}
+
+.tag-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0%;
+  margin-left: 0.5em;
+
+  padding: 0.3em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  background-color: rgb(160, 160, 160);
+
+  border-radius: 1em;
+
+  transition-duration: 100ms;
+}
+.tag-button > p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0%;
+  color: rgb(255, 255, 255);
+}
+
+.tag-button:hover{
+    transform: scale(1.1,1.1);
+}
+
+.tag-button:active{
+    transform: scale(1.2,1.2);
+}

@@ -4,5 +4,6 @@ export class SignIn {
     name: string;
     age: string;
     job: string;
+    image:string;
     constructor() { }
 }

@@ -1,1 +1,51 @@
-<p>header works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark  header">
+    <a class="navbar-brand select"  routerLink=""  routerLinkActive="active">Publicaciones</a>
+
+
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item ">
+                <a class="nav-link ">|</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link  select"   routerLink="/new-post"  routerLinkActive="active">Nuevo Post</a>
+            </li>
+
+            <li class="nav-item ">
+                <a id="details" class="nav-link " *ngIf="detalles">Detalles</a>
+            </li>
+        </ul>
+
+
+    </div>
+
+
+      
+        <ul *ngIf="!login" class="navbar-nav mr-auto">
+
+            <li class="nav-item ">
+                <a class="nav-link select"routerLink="/sign-in"  routerLinkActive="active">Registrarse</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link">|</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link  select" routerLink="/login"  routerLinkActive="active">Iniciar sesión</a>
+            </li>
+        </ul>
+
+    
+        <div *ngIf="login" class="perfil">
+            <figure>
+                <img src="https://cdn.peoople.app/image/profile/truster/822329_17022020105935621518_opt.jpg"
+                    alt="Imagen de perfil">
+                <figcaption id="name-img" class="nav-link select" routerLink="/sign-in"  routerLinkActive="active" >Antonio Olvera</figcaption>
+            </figure>
+        </div>
+        
+
+
+</nav>
