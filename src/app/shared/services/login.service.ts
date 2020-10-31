@@ -30,7 +30,7 @@ export class LoginService {
     } else {
       console.log('el usuario no existe');
       return false;
-    }
+    } 
 
     for (const item of users) {
       if (item.email === email) {
