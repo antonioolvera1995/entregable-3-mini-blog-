@@ -33,21 +33,13 @@ export class LoginService {
   //eliminar logs al comprobar efectividad
 
   isRegistered(email: string): boolean {
-<<<<<<< HEAD
-    let users: SignIn[] = [];
-    if (localStorage.getItem('users').length > 0) {
-      users = JSON.parse(localStorage.getItem('users'));
-    } else {
-      console.log('el usuario no existe');
-      return false;
-    } 
-=======
+
     let loged: boolean;
     try {
       let users: SignIn[] = [];
       if (localStorage.getItem('users')) {
         users = JSON.parse(localStorage.getItem('users'));
->>>>>>> sign-in
+
 
       } else {
 
