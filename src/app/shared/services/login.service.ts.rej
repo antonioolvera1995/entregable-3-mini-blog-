@@ -1,0 +1,10 @@
+diff a/src/app/shared/services/login.service.ts b/src/app/shared/services/login.service.ts	(rejected hunks)
+@@ -30,7 +30,7 @@
+     } else {
+       console.log('el usuario no existe');
+       return false;
+-    }
++    } 
+ 
+     for (const item of users) {
+       if (item.email === email) {
