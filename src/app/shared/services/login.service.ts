@@ -9,15 +9,17 @@ export class LoginService {
   constructor() { }
 
 
-  login() {
-      const login = localStorage.setItem('login', 'true');
+  login(email: string) {
+    let log: Login = { login: true, email: email.toLowerCase() };
+    localStorage.setItem('login', JSON.stringify(log));
   }
 
   isLogin() {
 
     try {
-      const login = localStorage.getItem('login');
-      if (login === 'true') {
+      const log = localStorage.getItem('login');
+      const login: Login = JSON.parse(log);
+      if (login.login === true) {
         return true;
       } else {
         return false;
@@ -53,14 +55,14 @@ export class LoginService {
             loged = true;
           }
         }
-      }else{loged = false}
+      } else { loged = false }
     } catch (error) {
       loged = false;
     }
 
 
 
-  return loged;
+    return loged;
 
   }
 
@@ -90,7 +92,7 @@ export class LoginService {
                 loged = true;
               }
             }
-          }else{loged = false}
+          } else { loged = false }
         } catch (error) {
           loged = false;
         }
@@ -116,3 +118,7 @@ export class LoginService {
 }
 
 
+export interface Login {
+  login: boolean,
+  email: string
+}

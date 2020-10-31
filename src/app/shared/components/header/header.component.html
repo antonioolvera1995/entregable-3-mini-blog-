@@ -40,9 +40,9 @@
     
         <div *ngIf="login" class="perfil">
             <figure>
-                <img src="https://cdn.peoople.app/image/profile/truster/822329_17022020105935621518_opt.jpg"
+                <img [src]="userLoged.urlImage"
                     alt="Imagen de perfil">
-                <figcaption id="name-img" class="nav-link select" routerLink="/sign-in"  routerLinkActive="active" >Antonio Olvera</figcaption>
+                <figcaption id="name-img" class="nav-link select" routerLink="/sign-in"  routerLinkActive="active" >{{userLoged.name}} {{userLoged.lastname}}</figcaption>
             </figure>
         </div>
         
