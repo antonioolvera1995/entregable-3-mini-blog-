@@ -1,0 +1,94 @@
+
+.container{
+    width: 100%;
+    margin-top: 5em;
+}
+.title{
+    font-size: 3em;
+}
+
+.user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 3em;
+    width: 100%;
+}
+
+.user>figure{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+   
+}
+
+.img-perfil{
+    width: 5em;
+    border-radius: 0.3em;
+}
+
+.div-perfil-text{
+    display: flex;
+    width: auto;
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 1em;
+}
+
+.img-perfil-text-1{
+font-weight: 500;
+margin-bottom: 0.5em;
+font-size: 1.1em ;
+}
+
+.img-perfil-text-2{
+    font-size: 1.1em ;
+
+}
+
+/* --------------------------------------------------- */
+
+
+
+.subtitle{
+font-size: 2em;
+margin-top: 3em;
+}
+
+.description{
+    font-size: 1.3em;
+    margin-bottom: 5em;
+}
+
+.div-img-publication{
+    display: flex;
+    width: 100%;
+    margin-top: 3em;
+    align-items: center;
+    justify-content: center;
+    
+}
+.figure-publication{
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.img-publication{
+    width: 30em;
+    border-radius: 0.3em;
+}
+.img-publication-text{
+    margin-top: 1em;
+    font-weight: 500;
+    font-size: 1.2em;
+    color: rgba(17, 17, 17, 0.479);
+
+}
+

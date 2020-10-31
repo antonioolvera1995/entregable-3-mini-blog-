@@ -4,6 +4,7 @@ export class publications {
     tags: string[];
     subtitle: string;
     urlImage: string;
+    imageText:string;
     description: string;
     id:number;
     constructor() { }
