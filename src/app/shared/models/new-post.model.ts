@@ -9,5 +9,6 @@ export class NewPostModel {
     description:string;
     author:string; //nombre, apellido, trabajo, edad
     authorImage:string;
+    id:number;
     constructor() {}
 }

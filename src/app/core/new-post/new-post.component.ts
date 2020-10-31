@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NewPostModel } from 'src/app/shared/models/new-post.model';
 import { SignIn } from 'src/app/shared/models/sign-in.models';
 import { StorageService } from 'src/app/shared/services/storage.service';
@@ -11,9 +12,9 @@ import { StorageService } from 'src/app/shared/services/storage.service';
 })
 export class NewPostComponent implements OnInit {
 
-  formg: FormGroup
-  date: Date = new Date()
-  constructor(private fb: FormBuilder,  private storage:StorageService) { this.createForm() }
+  formg: FormGroup;
+  date: Date = new Date();
+  constructor(private fb: FormBuilder, private storage: StorageService, private route:Router) { this.createForm() }
 
   ngOnInit(): void {
   }
@@ -37,7 +38,7 @@ export class NewPostComponent implements OnInit {
 
 
     if (e.key.toLowerCase() === 'enter' && this.getTags.controls.length < 5 && this.getTags.status === 'VALID') {
-      this.getTags.push(this.fb.control('', [Validators.required]))
+      this.getTags.push(this.fb.control('', [Validators.required]));
     }
 
   }
@@ -53,11 +54,10 @@ export class NewPostComponent implements OnInit {
 
 
   saveForm() {
-
     if (this.formg.status === 'VALID') {
       let publication: NewPostModel = new NewPostModel();
 
-      let user:SignIn = this.storage.getUser();
+      let user: SignIn = this.storage.getUser();
       publication.title = this.formg.get('title').value;
       publication.date = this.formg.get('date').value;
       publication.tags = this.formg.get('tags').value;
@@ -67,12 +67,16 @@ export class NewPostComponent implements OnInit {
       publication.description = this.formg.get('description').value;
       publication.author = `${user.name}, ${user.lastname}, ${user.job}, ${user.age}, `;
       publication.authorImage = user.urlImage;
+      publication.id = this.storage.searchId();
 
-    } else {
-      alert('Rellene todos los campos por favor');
+      this.storage.savePost(publication);
+      this.route.navigate([`/publication-details/${publication.id}`]);
+
     }
 
   }
 
+
+  
 
 }
