@@ -1,5 +1,5 @@
 
-export class Login {
+export class LoginModel {
     email:string;
     password:string;
     constructor() {}

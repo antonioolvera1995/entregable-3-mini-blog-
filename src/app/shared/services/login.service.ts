@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
+import { LoginModel } from '../models/login.models';
 import { SignIn } from '../models/sign-in.models';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor() { }
+  constructor(private storage: StorageService) { }
 
 
   login(email: string) {
@@ -101,11 +103,11 @@ export class LoginService {
 
         if (!loged) {
           resolve(null);
-          console.log('no existe');
+
         } else {
           resolve({ isRegisteredPromise: true });
 
-          console.log('existe');
+
 
         }
       }, 1000);
@@ -115,7 +117,86 @@ export class LoginService {
 
   }
 
+
+
+  isRegisteredPromiseLogin(control) {
+    return new Promise((resolve, reject) => {
+
+      setTimeout(() => {
+        let loged: boolean;
+        try {
+          let users: SignIn[] = [];
+          if (localStorage.getItem('users')) {
+            users = JSON.parse(localStorage.getItem('users'));
+
+          } else {
+
+            loged = false;
+          }
+
+          if (localStorage.getItem('users')) {
+            for (const item of users) {
+              if (item.email.toLowerCase() === control.value.toLowerCase()) {
+
+                loged = true;
+              }
+            }
+          } else { loged = false }
+        } catch (error) {
+          loged = false;
+        }
+
+
+
+
+        if (loged) {
+          resolve(null);
+
+        } else {
+          resolve({ isRegisteredPromise: true });
+
+
+
+        }
+      }, 1000);
+
+
+    });
+
+  }
+
+
+
+
+
+
+  enter(user: LoginModel): boolean {
+
+    const users: SignIn[] = this.storage.getUsers();
+
+    for (const item of users) {
+      if (item.email.toLowerCase() === user.email.toLowerCase() && item.password === user.password) {
+        return true;
+      }
+    }
+
+
+    return false;
+  }
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
 
 
 export interface Login {

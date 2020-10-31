@@ -1,21 +1,19 @@
-
-
 <main class="text-center">
-    <!-- form -->
-<div class="form-signin size"> 
-    <img class="mb-4" src="assets/images/logo-neoland.jpg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email"  class="form-control" placeholder="Email address" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password"  class="form-control" placeholder="Password" required>
-    <div class="checkbox mb-3">
-      <label class="check">
-        <input class="check" type="checkbox"  value="remember-me"> Remember me
-      </label>
+  <form [formGroup]="formg" (submit)="saveform()">
+    <div class="form-signin size">
+      <img class="mb-4" src="assets/images/logo-neoland.jpg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" class="form-control" placeholder="Email address" autofocus formControlName="email">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" class="form-control" placeholder="Password" formControlName="password">
+      <div class="checkbox mb-3">
+        <label class="check">
+          <input class="check" type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
-</div>
-
+  </form>
 </main>
