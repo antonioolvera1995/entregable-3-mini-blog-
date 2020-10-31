@@ -1,23 +1,27 @@
 import { Injectable } from '@angular/core';
+import { LoginModel } from '../models/login.models';
 import { SignIn } from '../models/sign-in.models';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor() { }
+  constructor(private storage: StorageService) { }
 
 
-  login() {
-      const login = localStorage.setItem('login', 'true');
+  login(email: string) {
+    let log: Login = { login: true, email: email.toLowerCase() };
+    localStorage.setItem('login', JSON.stringify(log));
   }
 
   isLogin() {
 
     try {
-      const login = localStorage.getItem('login');
-      if (login === 'true') {
+      const log = localStorage.getItem('login');
+      const login: Login = JSON.parse(log);
+      if (login.login === true) {
         return true;
       } else {
         return false;
@@ -33,21 +37,13 @@ export class LoginService {
   //eliminar logs al comprobar efectividad
 
   isRegistered(email: string): boolean {
-<<<<<<< HEAD
-    let users: SignIn[] = [];
-    if (localStorage.getItem('users').length > 0) {
-      users = JSON.parse(localStorage.getItem('users'));
-    } else {
-      console.log('el usuario no existe');
-      return false;
-    } 
-=======
+
     let loged: boolean;
     try {
       let users: SignIn[] = [];
       if (localStorage.getItem('users')) {
         users = JSON.parse(localStorage.getItem('users'));
->>>>>>> sign-in
+
 
       } else {
 
@@ -61,14 +57,14 @@ export class LoginService {
             loged = true;
           }
         }
-      }else{loged = false}
+      } else { loged = false }
     } catch (error) {
       loged = false;
     }
 
 
 
-  return loged;
+    return loged;
 
   }
 
@@ -98,7 +94,7 @@ export class LoginService {
                 loged = true;
               }
             }
-          }else{loged = false}
+          } else { loged = false }
         } catch (error) {
           loged = false;
         }
@@ -107,11 +103,11 @@ export class LoginService {
 
         if (!loged) {
           resolve(null);
-          console.log('no existe');
+
         } else {
           resolve({ isRegisteredPromise: true });
 
-          console.log('existe');
+
 
         }
       }, 1000);
@@ -121,6 +117,89 @@ export class LoginService {
 
   }
 
+
+
+  isRegisteredPromiseLogin(control) {
+    return new Promise((resolve, reject) => {
+
+      setTimeout(() => {
+        let loged: boolean;
+        try {
+          let users: SignIn[] = [];
+          if (localStorage.getItem('users')) {
+            users = JSON.parse(localStorage.getItem('users'));
+
+          } else {
+
+            loged = false;
+          }
+
+          if (localStorage.getItem('users')) {
+            for (const item of users) {
+              if (item.email.toLowerCase() === control.value.toLowerCase()) {
+
+                loged = true;
+              }
+            }
+          } else { loged = false }
+        } catch (error) {
+          loged = false;
+        }
+
+
+
+
+        if (loged) {
+          resolve(null);
+
+        } else {
+          resolve({ isRegisteredPromise: true });
+
+
+
+        }
+      }, 1000);
+
+
+    });
+
+  }
+
+
+
+
+
+
+  enter(user: LoginModel): boolean {
+
+    const users: SignIn[] = this.storage.getUsers();
+
+    for (const item of users) {
+      if (item.email.toLowerCase() === user.email.toLowerCase() && item.password === user.password) {
+        return true;
+      }
+    }
+
+
+    return false;
+  }
+
+
+
+
+
+
+
+
+
+
 }
 
 
+
+
+
+export interface Login {
+  login: boolean,
+  email: string
+}

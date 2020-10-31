@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../../services/login.service';
+import { SignIn } from '../../models/sign-in.models';
+import {  LoginService } from '../../services/login.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +10,12 @@ import { LoginService } from '../../services/login.service';
 })
 export class HeaderComponent implements OnInit {
 
+  userLoged:SignIn;
   public login: boolean = false;
   detalles:boolean = false;
   
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private storage:StorageService) { }
 
   ngOnInit(): void {
 
@@ -32,6 +35,7 @@ export class HeaderComponent implements OnInit {
 
     if (this.loginService.isLogin()) {
       this.login = true;
+      this.userLoged = this.storage.getUser();
     } else {
       this.login = false;
     }

@@ -53,7 +53,7 @@ export class SignInComponent implements OnInit {
 
       if (!this.login.isRegistered(signIn.email)) {
         this.storage.saveNewUser(signIn);
-        this.login.login();
+        this.login.login(signIn.email);
         this.router.navigate(['/']);
 
       }else{
