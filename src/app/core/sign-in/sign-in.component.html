@@ -1,6 +1,6 @@
 
 <main>
-<div class="container">
+<div class="container" *ngIf="!loged">
 
 
 <form [formGroup]="formg" (submit)="saveForm()">
@@ -9,16 +9,18 @@
     <label>Email</label>
     <input type="email" class="form-control"
     formControlName="email"
+    [ngClass]="{'is-valid': vaEmail, 'is-invalid': invaEmail}"
     >
-    <small class="form-text text-muted">Required field, fill it in please.</small>
+    <small *ngIf="invaEmail" class="form-text text-danger">Required field, fill it in please, the email is not valid or is already registered.</small>
 </div>
 
 <div class="form-group">
     <label>Password</label>
     <input type="password" class="form-control"
     formControlName="password"
+    [ngClass]="{'is-valid': vaPassword, 'is-invalid': invaPassword}"
     >
-    <small class="form-text text-muted">Required field, fill it in please.</small>
+    <small *ngIf="invaPassword" class="form-text text-danger">Required field, fill it in please, must have at least 1 number, 1 lowercase and 1 uppercase.</small>
 </div>
 
 
@@ -26,39 +28,145 @@
     <label>Name</label>
     <input type="text" class="form-control"
     formControlName="name"
+    [ngClass]="{'is-valid': vaName, 'is-invalid': invaName}"
     >
-    <small class="form-text text-muted">Required field, fill it in please.</small>
+    <small *ngIf="invaName" class="form-text text-danger">Required field, fill it in please, must have at 3 characters.</small>
 </div>
 
 <div class="form-group">
     <label>Last name</label>
     <input type="text" class="form-control"
     formControlName="lastname"
+    [ngClass]="{'is-valid': vaLastname, 'is-invalid': invaLastname}"
     >
-    <small class="form-text text-muted">Required field, fill it in please.</small>
+    <small *ngIf="invaLastname" class="form-text text-danger">Required field, fill it in please, must have at 3 characters.</small>
 </div>
 
+
+<div class="form-group">
 <label>Age</label>
 <input type="number" class="form-control"
 formControlName="age"
+[ngClass]="{'is-valid': vaAge, 'is-invalid': invaAge}"
 >
-<small class="form-text text-muted">Required field, fill it in please.</small>
+<small *ngIf="invaAge" class="form-text text-danger">Required field, fill it in please, should only contain numbers.</small>
+</div>
 
+
+<div class="form-group">
 <label>Job</label>
 <input type="text" class="form-control"
 formControlName="job"
+[ngClass]="{'is-valid': vaJob, 'is-invalid': invaJob}"
 >
-<small class="form-text text-muted">Required field, fill it in please.</small>
+<small *ngIf="invaJob" class="form-text text-danger">Required field, fill it in please, must have at 3 characters.</small>
+</div>
 
+
+<div class="form-group">
 <label>Url image</label>
 <input type="text" class="form-control"
 formControlName="urlImage"
+[ngClass]="{'is-valid': vaUrlImage, 'is-invalid': invaUrlImage}"
 >
-<small class="form-text text-muted">Required field, fill it in please.</small>
+<small *ngIf="invaUrlImage" class="form-text text-danger">Required field, fill it in please, you must enter
+    a valid link.</small>
+    </div>
 
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary">Sign In</button>
 
 </form>
+
+
 </div>
 
+
+
+
+<!-- --------------------------------------------------------------- -->
+
+
+
+
+<div class="container" *ngIf="loged">
+
+
+    <form [formGroup]="formg" (submit)="saveEditForm()">
+    
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control"
+        formControlName="email"
+        
+        readonly
+        >
+        
+    </div>
+    
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control"
+        formControlName="password"
+        [ngClass]="{'is-valid': vaPassword, 'is-invalid': invaPassword}"
+        >
+        <small *ngIf="invaPassword" class="form-text text-danger">Required field, fill it in please, must have at least 1 number, 1 lowercase and 1 uppercase.</small>
+    </div>
+    
+    
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control"
+        formControlName="name"
+        [ngClass]="{'is-valid': vaName, 'is-invalid': invaName}"
+        >
+        <small *ngIf="invaName" class="form-text text-danger">Required field, fill it in please, must have at 3 characters.</small>
+    </div>
+    
+    <div class="form-group">
+        <label>Last name</label>
+        <input type="text" class="form-control"
+        formControlName="lastname"
+        [ngClass]="{'is-valid': vaLastname, 'is-invalid': invaLastname}"
+        >
+        <small *ngIf="invaLastname" class="form-text text-danger">Required field, fill it in please, must have at 3 characters.</small>
+    </div>
+    
+    
+    <div class="form-group">
+    <label>Age</label>
+    <input type="number" class="form-control"
+    formControlName="age"
+    [ngClass]="{'is-valid': vaAge, 'is-invalid': invaAge}"
+    >
+    <small *ngIf="invaAge" class="form-text text-danger">Required field, fill it in please, should only contain numbers.</small>
+    </div>
+    
+    
+    <div class="form-group">
+    <label>Job</label>
+    <input type="text" class="form-control"
+    formControlName="job"
+    [ngClass]="{'is-valid': vaJob, 'is-invalid': invaJob}"
+    >
+    <small *ngIf="invaJob" class="form-text text-danger">Required field, fill it in please, must have at 3 characters.</small>
+    </div>
+    
+    
+    <div class="form-group">
+    <label>Url image</label>
+    <input type="text" class="form-control"
+    formControlName="urlImage"
+    [ngClass]="{'is-valid': vaUrlImage, 'is-invalid': invaUrlImage}"
+    >
+    <small *ngIf="invaUrlImage" class="form-text text-danger">Required field, fill it in please, you must enter
+        a valid link.</small>
+        </div>
+    
+    <button type="submit" class="btn btn-success">Save Change</button>
+    
+    </form>
+    
+    
+  
+    </div>
 </main>
