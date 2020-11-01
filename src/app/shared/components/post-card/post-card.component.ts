@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-post-card',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-card.component.css']
 })
 export class PostCardComponent implements OnInit {
+
+  @Input() urlImage:string = '';
+  @Input() title:string = '';
+  @Input() description:string = '';
+  @Input() date:string = '';
 
   constructor() { }
 
