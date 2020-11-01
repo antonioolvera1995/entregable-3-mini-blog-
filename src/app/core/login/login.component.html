@@ -1,19 +1,29 @@
 <main class="text-center">
   <form [formGroup]="formg" (submit)="saveform()">
     <div class="form-signin size">
+      <h1 *ngIf="incorrect" class="invalid text-warning">Incorrect email or password, please try again</h1>
       <img class="mb-4" src="assets/images/logo-neoland.jpg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" class="form-control" placeholder="Email address" autofocus formControlName="email">
+
+      <input type="email" class="form-control" placeholder="Email address" autofocus formControlName="email"
+      [ngClass]="{'is-valid': vaEmail, 'is-invalid': invaEmail}"
+      >
+      <small *ngIf="invaEmail" class="form-text text-danger">Required field, fill it in please, enter a valid email.</small>
+
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" class="form-control" placeholder="Password" formControlName="password">
+
+      <input type="password" class="form-control" placeholder="Password" formControlName="password"
+      [ngClass]="{'is-valid': vaPassword, 'is-invalid': invaPassword}"
+      >
+      <small *ngIf="invaPassword" class="form-text text-danger">Required field, fill it in please, enter at least 4 characters.</small>
       <div class="checkbox mb-3">
         <label class="check">
           <input class="check" type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+      <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
     </div>
   </form>
 </main>

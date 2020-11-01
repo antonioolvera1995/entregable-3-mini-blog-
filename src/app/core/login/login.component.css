@@ -14,3 +14,11 @@ height: 90%;
  
     margin-top: 1em;
 }
+
+small{
+    margin: 1em;
+}
+
+.invalid{
+    margin-bottom: 1em;
+}

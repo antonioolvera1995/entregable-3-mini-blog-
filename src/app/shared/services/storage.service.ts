@@ -31,6 +31,28 @@ export class StorageService {
 
   }
 
+  saveEditUser(user: SignIn) {
+
+    let totalUsers: string;
+    let usersStorage: SignIn[] = [];
+    if (JSON.parse(localStorage.getItem('users'))) {
+      usersStorage = JSON.parse(localStorage.getItem('users'));
+    }
+    
+
+    for (let i = 0; i < usersStorage.length; i++) {
+      const item = usersStorage[i];
+      if (item.email.toLowerCase() === user.email.toLowerCase()) {
+        usersStorage[i] = user;
+      }
+      
+    }
+
+    totalUsers = JSON.stringify(usersStorage)
+    localStorage.setItem('users', totalUsers);
+
+  }
+
   getUser(): SignIn {
     let usersStorage: SignIn[] = [];
     let userStorage: SignIn = new SignIn();
