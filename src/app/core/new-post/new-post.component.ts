@@ -23,13 +23,13 @@ export class NewPostComponent implements OnInit {
   createForm() {
     this.formg = this.fb.group({
 
-      title: ['', [Validators.required]],
+      title: ['', [Validators.required, Validators.minLength(10)]],
       date: [`${this.date}`, [Validators.required]],
-      tags: this.fb.array(['']),
-      subtitle: ['', [Validators.required]],
-      urlImage: ['', [Validators.required]],
-      textImage: ['', [Validators.required]],
-      description: ['', [Validators.required]],
+      tags: this.fb.array([['', [Validators.required]]]),
+      subtitle: ['', [Validators.required, Validators.minLength(10)]],
+      urlImage: ['', [Validators.required, Validators.pattern("^http(s)?://.+$")]],
+      textImage: ['', [Validators.required, Validators.minLength(4)]],
+      description: ['', [Validators.required, Validators.minLength(500)]],
 
     });
   }
@@ -94,7 +94,7 @@ export class NewPostComponent implements OnInit {
 
       let user: SignIn = this.storage.getUser();
       publication.title = this.formg.get('title').value;
-      publication.date = this.formg.get('date').value;
+      publication.date = `${this.date}`;
       publication.tags = this.formg.get('tags').value;
       publication.subtitle = this.formg.get('subtitle').value;
       publication.urlImage = this.formg.get('urlImage').value;
@@ -111,7 +111,21 @@ export class NewPostComponent implements OnInit {
 
   }
 
+get vaTitle(){ return this.formg.get('title').status === 'VALID' && this.formg.get('title').touched}
+get invaTitle(){ return this.formg.get('title').status === 'INVALID' && this.formg.get('title').touched}
 
+get vaTag(){ return this.formg.get('tags').status === 'VALID' && this.formg.get('tags').touched}
+get invaTag(){ return this.formg.get('tags').status === 'INVALID' && this.formg.get('tags').touched}
 
+get vaSubtitle(){ return this.formg.get('subtitle').status === 'VALID' && this.formg.get('subtitle').touched}
+get invaSubtitle(){ return this.formg.get('subtitle').status === 'INVALID' && this.formg.get('subtitle').touched}
 
+get vaUrlImage(){ return this.formg.get('urlImage').status === 'VALID' && this.formg.get('urlImage').touched}
+get invaUrlImage(){ return this.formg.get('urlImage').status === 'INVALID' && this.formg.get('urlImage').touched}
+
+get vaTextImage(){ return this.formg.get('textImage').status === 'VALID' && this.formg.get('textImage').touched}
+get invaTextImage(){ return this.formg.get('textImage').status === 'INVALID' && this.formg.get('textImage').touched}
+
+get vaDescription (){ return this.formg.get('description').status === 'VALID' && this.formg.get('description').touched}
+get invaDescription (){ return this.formg.get('description').status === 'INVALID' && this.formg.get('description').touched}
 }
