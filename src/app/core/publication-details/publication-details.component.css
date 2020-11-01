@@ -89,7 +89,15 @@ margin-top: 3em;
     font-weight: 500;
     font-size: 1.2em;
     color: rgba(17, 17, 17, 0.479);
-
+    transition-duration: 100ms;
+    user-select: none;
+}
+.img-publication-text:hover{
+    color: rgb(17, 17, 17)
+}
+.img-publication-text:active{
+    color: rgb(17, 17, 17);
+    transform: scale(1.1, 1.1);
 }
 
 

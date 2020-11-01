@@ -20,7 +20,7 @@
                 [src]="post.urlImage"
                 alt="Imagen de perfil">
             
-                <figcaption class="img-publication-text">{{post.textImage}}</figcaption>
+                <figcaption class="img-publication-text" (click)="goLink(post.urlImage)">{{post.textImage}}</figcaption>
                
          
         </figure>

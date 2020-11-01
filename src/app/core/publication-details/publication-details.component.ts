@@ -27,4 +27,8 @@ export class PublicationDetailsComponent implements OnInit {
     });
   }
 
+  goLink(url:string){
+    window.open(url);
+  }
+
 }
