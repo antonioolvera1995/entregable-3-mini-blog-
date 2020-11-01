@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
     } else {
       this.login = false;
     }
-  }, 2000);
+  }, 100);
 
 
 

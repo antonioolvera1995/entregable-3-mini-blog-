@@ -14,7 +14,7 @@ export class NewPostComponent implements OnInit {
 
   formg: FormGroup;
   date: Date = new Date();
-  constructor(private fb: FormBuilder, private storage: StorageService, private route:Router) { this.createForm() }
+  constructor(private fb: FormBuilder, private storage: StorageService, private route: Router) { this.createForm() }
 
   ngOnInit(): void {
   }
@@ -39,16 +39,51 @@ export class NewPostComponent implements OnInit {
 
     if (e.key.toLowerCase() === 'enter' && this.getTags.controls.length < 5 && this.getTags.status === 'VALID') {
       this.getTags.push(this.fb.control('', [Validators.required]));
+      let targett = (e.target as HTMLInputElement);
+      targett.blur();
+      for (let i = 0; i < this.getTags.controls.length; i++) {
+        let item = this.getTags.controls[i];
+        if (i > this.getTags.controls.length - 2) {
+          item.enable();
+        } else {
+          item.disable();
+        }
+      }
+
+
+      setTimeout(() => {
+        var dom = document.getElementsByTagName("*");
+        for (let i = 0; i < dom.length; i++) {
+          const element: HTMLInputElement = dom[i] as HTMLInputElement;
+          let atri0 = targett.getAttribute('ng-reflect-name');
+          let atri = element.getAttribute('ng-reflect-name');
+          
+
+          if (Number(atri) > Number(atri0)) {
+            element.focus();
+          
+          }
+        }
+      }, 100);
+
+
+
     }
 
   }
 
   removeTags(i: number) {
-
     if (this.getTags.controls.length > 1) {
       this.getTags.removeAt(i)
     }
-
+    for (let i = 0; i < this.getTags.controls.length; i++) {
+      let item = this.getTags.controls[i];
+      if (i > this.getTags.controls.length - 2) {
+        item.enable();
+      } else {
+        item.disable();
+      }
+    }
   }
 
 
@@ -77,6 +112,6 @@ export class NewPostComponent implements OnInit {
   }
 
 
-  
+
 
 }

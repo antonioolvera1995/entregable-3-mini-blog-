@@ -37,7 +37,7 @@ main {
  
 
 .input-array{
-  text-align: right;
+  text-align: center;
   width: auto;
 }
 .input-array-hide{
@@ -45,7 +45,7 @@ main {
   width: auto;
   outline-style: none;
   border-style: none;
-
+background-color: rgba(0, 0, 0, 0);
 }
 svg{
   margin-left: 0.5em;
