@@ -1,64 +1,71 @@
-
-
-
-
 <main>
     <div class="container">
 
-    
-    <div class="form-group">
-        <label>Title of the publication</label>
-        <input type="text" class="form-control">
-        <small class="form-text text-muted">Required field, fill it in please.</small>
-    </div>
-    
-    <div class="form-group">
-        <label>Date</label>
-        <input readonly type="text" class="form-control">
-        <small class="form-text text-muted">Required field, fill it in please.</small>
-    </div>
-    
-    
-    <div class="form-group">
-        <label>Tags</label>
-        <div class="tags-div-button">
-            <input type="text" class="form-control">
-            <button type="button" class="btn btn-info">Add</button>
-        </div>
-        
-        <small class="form-text text-muted">Required field, fill it in please.</small>
-        <div class="tags-div">
-            <div class="tag-in"> <p class="tag-text">tag 1</p> <div class="tag-button"><p>x</p></div></div>
+        <form autocomplete="off" [formGroup]="formg" (submit)="saveForm()">
+            <div class="form-group">
+                <label>Title of the publication</label>
+                <input type="text" class="form-control" formControlName="title">
+                <small class="form-text text-muted">Required field, fill it in please.</small>
+            </div>
+
+            <div class="form-group">
+                <label>Date</label>
+                <input readonly type="text" class="form-control" formControlName="date">
+                <small class="form-text text-muted">Required field, fill it in please.</small>
+            </div>
+
+
+            <div class="form-group" formArrayName="tags">
+               
+                    <label>Tags</label>
+                    <div class="tags-div-button" >
+                        <div *ngFor="let tag of getTags.controls;index as i">
+
+                            <div class="roww">
+                                    <input type="text"
+                                     class="input-array"
+                        [formControlName]="i"
+                        (keyup)="addTags($event)"
+                        [ngClass]="{'input-array-hide': i != getTags.controls.length-1}"
+                        
+                        >
+                        <svg (click)="removeTags(i)" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                          </svg>
+                            </div>
+                        <small class="form-text text-muted">Required field, fill it in please.</small>
+                    </div>
+                    </div>
+
+                
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label>Subtitle</label>
+                <input type="text" class="form-control" formControlName="subtitle">
+                <small class="form-text text-muted">Required field, fill it in please.</small>
+            </div>
+
+            <label>Post image</label>
+            <input type="text" class="form-control" formControlName="urlImage">
+            <small class="form-text text-muted">Required field, fill it in please.</small>
+
+            <label>Image text</label>
+            <input type="text" class="form-control" formControlName="textImage">
+            <small class="form-text text-muted">Required field, fill it in please.</small>
+
+            <label>Description of the publication</label>
+            <input type="text" class="form-control" formControlName="description">
+            <small class="form-text text-muted">Required field, fill it in please.</small>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
             
-        </div>
-        
+        </form>
+
     </div>
 
-
-
-    
-    <div class="form-group">
-        <label>Subtitle</label>
-        <input type="text" class="form-control">
-        <small class="form-text text-muted">Required field, fill it in please.</small>
-    </div>
-    
-    <label>Post image</label>
-    <input type="text" class="form-control">
-    <small class="form-text text-muted">Required field, fill it in please.</small>
-
-    <label>Image text</label>
-    <input type="text" class="form-control">
-    <small class="form-text text-muted">Required field, fill it in please.</small>
-    
-    <label>Description of the publication</label>
-    <input type="text" class="form-control">
-    <small class="form-text text-muted">Required field, fill it in please.</small>
-    
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
-    
-    
-    </div>
-    
-    </main>
+</main>
