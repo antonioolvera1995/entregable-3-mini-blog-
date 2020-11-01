@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NewPostModel } from 'src/app/shared/models/new-post.model';
 import { StorageService } from 'src/app/shared/services/storage.service';
 
@@ -13,7 +14,7 @@ export class PublicationsComponent implements OnInit {
   posts: NewPostModel[];
   show: boolean = false;
 
-  constructor(private storage: StorageService) { this.loadPosts(); }
+  constructor(private storage: StorageService, private route:Router) { this.loadPosts(); }
 
   ngOnInit(): void {
   }
@@ -40,6 +41,13 @@ export class PublicationsComponent implements OnInit {
 
       this.show = true;
     }
+  }
+
+
+  goDetails(id:number){
+
+    this.route.navigate([`/publication-details/${id}`]);
+    
   }
 
 }
