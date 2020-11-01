@@ -65,7 +65,7 @@ export class NewPostComponent implements OnInit {
       publication.urlImage = this.formg.get('urlImage').value;
       publication.textImage = this.formg.get('textImage').value;
       publication.description = this.formg.get('description').value;
-      publication.author = `${user.name}, ${user.lastname}, ${user.job}, ${user.age}, `;
+      publication.author = `${user.name}, ${user.lastname}, ${user.job}, ${user.age}`;
       publication.authorImage = user.urlImage;
       publication.id = this.storage.searchId();
 

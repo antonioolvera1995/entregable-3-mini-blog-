@@ -87,5 +87,42 @@ export class StorageService {
     return id;
   }
 
+  getPost(id:number):NewPostModel {
+
+    let postsStorage: NewPostModel[] = [];
+    let postStorage: NewPostModel;
+    if (JSON.parse(localStorage.getItem('posts'))) {
+      postsStorage = JSON.parse(localStorage.getItem('posts'));
+
+      for (const post of postsStorage) {
+        
+        if (post.id === id) {
+          postStorage = post;
+        }
+      }
+    }else{
+      return null;
+    }
+    
+    return postStorage;
+
+  }
+  
+  getPosts():NewPostModel[] {
+
+    let postsStorage: NewPostModel[] = [];
+    if (JSON.parse(localStorage.getItem('posts'))) {
+      postsStorage = JSON.parse(localStorage.getItem('posts'));
+    }else{
+      return null;
+    }
+    
+    return postsStorage;
+
+  }
+
+
+
+
 
 }
