@@ -4,7 +4,8 @@
 
     <div class="user">
         <figure>
-            <img class="img-perfil"
+            <img 
+            [ngClass]="{'img-perfil': !mew, 'mew': mew}"
                 [src]="post.authorImage"
                 alt="Imagen de perfil">
             <div class="div-perfil-text">

@@ -11,6 +11,7 @@ import { StorageService } from 'src/app/shared/services/storage.service';
 export class PublicationDetailsComponent implements OnInit {
 
   post: NewPostModel = new NewPostModel();
+  mew:boolean = false;
 
   constructor(private storage: StorageService, private ruta: ActivatedRoute) {
     this.loadPost();
@@ -24,6 +25,9 @@ export class PublicationDetailsComponent implements OnInit {
   loadPost() {
     this.ruta.params.subscribe((params) => {
       this.post = this.storage.getPost(Number(params['id']));
+      if (Number(params['id']) === 0) {
+        this.mew = true;
+      }
     });
   }
 

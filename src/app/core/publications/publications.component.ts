@@ -14,7 +14,10 @@ export class PublicationsComponent implements OnInit {
   posts: NewPostModel[];
   show: boolean = false;
 
-  constructor(private storage: StorageService, private route:Router) { this.loadPosts(); }
+  constructor(private storage: StorageService, private route: Router) {
+    this.storage.fillData();
+    this.loadPosts();
+  }
 
   ngOnInit(): void {
   }
@@ -30,11 +33,11 @@ export class PublicationsComponent implements OnInit {
         let newDescription = '';
         for (let i = 0; i < descrip.length; i++) {
           const item = descrip[i];
-          if ( i < 20) {
+          if (i < 20) {
             newDescription += `${item} `;
           }
         }
-        newDescription = newDescription.substring( 0, newDescription.length-2 );
+        newDescription = newDescription.substring(0, newDescription.length - 2);
         post.description = `${newDescription}...`;
       }
 
@@ -44,10 +47,10 @@ export class PublicationsComponent implements OnInit {
   }
 
 
-  goDetails(id:number){
+  goDetails(id: number) {
 
     this.route.navigate([`/publication-details/${id}`]);
-    
+
   }
 
 }
