@@ -1,60 +1,106 @@
-
-*{
-    user-select: none;
+* {
+  user-select: none;
 }
 
-.header{
-    height: 6em;
-    background-color: black;
+.header {
+  height: 6em;
+  background-color: black;
 }
 
-.select{
-    color: rgb(192, 192, 192);
-    transition-duration:50ms ;
+.select {
+  color: rgb(192, 192, 192);
+  transition-duration: 50ms;
 }
 
-.select:active{
-    color: rgb(255, 255, 255);
-    transform: scale(1.05,1.05);
+.select:active {
+  color: rgb(255, 255, 255);
+  transform: scale(1.05, 1.05);
 }
-
-
 
 /* -----------Imagen de perfil------------ */
 
-.perfil{
-    display: flex;
-    width: 12em;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1em;
+.perfil {
+  display: flex;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1em;
 }
-figure{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1em;
-
-   
-}
- 
-figure >img{
-    width: 3em;
-    border-radius: 0.3em;
-}
-figure >figcaption{
-    margin-left: 1em;
-    color: white;
-    outline-style: none;
+figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
 }
 
-#name-img{
-    color: rgb(150, 150, 150);
+figure > img {
+  width: 3em;
+  border-radius: 0.3em;
+  transition-duration: 50ms;
+  outline-style: none;
+
+  border-color: rgba(255, 255, 255, 0.541);
+  border-style: solid;
+  border-width: 0.1em;
 }
-#name-img:hover{
-    color: rgb(255, 255, 255);
+figure > img:hover {
+  border-color: white;
+  border-style: solid;
+  border-width: 0.1em;
+  transform: scale(1.01, 1.01);
+}
+figure > img:active {
+  border-color: white;
+  border-style: solid;
+  border-width: 0.1em;
+  transform: scale(1.1, 1.1);
+}
+figure > figcaption {
+  margin-right: 1em;
+  color: white;
+  outline-style: none;
 }
 
-#details{
-    color: rgb(255, 255, 255);
+#name-img {
+  color: rgba(255, 255, 255, 0.507);
+}
+#name-img:hover {
+  color: rgb(255, 255, 255);
+}
+
+#details {
+  color: rgb(255, 255, 255);
+}
+
+/* ----------power---------------- */
+
+.power-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 70ms;
+}
+.power-div:hover {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.power-div:active {
+  transform: scale(1.2, 1.2);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+#power-img {
+  color: rgba(255, 255, 255, 0.575);
+  font-size: 2.3em;
+  margin-right: 0.5em;
+}
+#power-img:hover {
+  color: rgb(255, 255, 255);
+}
+
+
+.marg-righ{
+  margin-right: 2em;
+  
 }

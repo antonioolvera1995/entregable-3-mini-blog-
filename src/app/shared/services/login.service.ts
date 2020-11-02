@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginModel } from '../models/login.models';
 import { SignIn } from '../models/sign-in.models';
 import { StorageService } from './storage.service';
@@ -8,7 +9,7 @@ import { StorageService } from './storage.service';
 })
 export class LoginService {
 
-  constructor(private storage: StorageService) { }
+  constructor(private storage: StorageService, private route:Router) { }
 
 
   login(email: string) {
@@ -16,6 +17,10 @@ export class LoginService {
     localStorage.setItem('login', JSON.stringify(log));
   }
 
+  logOut(){
+    localStorage.setItem('login',"");
+    this.route.navigate(['/']);
+  }
   isLogin() {
 
     try {

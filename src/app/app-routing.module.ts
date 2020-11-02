@@ -12,9 +12,8 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent},
   { path: 'new-post', component: NewPostComponent, canActivate:[LoginGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'publication-details', component: PublicationDetailsComponent },
   { path: '', component: PublicationsComponent , pathMatch: 'full' },
-  { path: '**', component: PublicationsComponent, pathMatch: 'full' }
+  { path: '**', pathMatch: 'full' ,redirectTo:"/"}
 ];
 
 @NgModule({

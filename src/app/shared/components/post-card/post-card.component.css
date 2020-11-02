@@ -1,7 +1,16 @@
+.size {
+  width: 20em;
+  margin: 2em;
+  padding: 0%;
+  user-select: none;
+  transition-duration: 50ms;
+}
+.size:hover {
+  transform: scale(1.02, 1.02);
+  cursor: pointer;
+}
 
-.size{
-
-    width: 20em;
-    margin: 2em;
-    padding: 0%;
+.size:active {
+  transform: scale(1.05, 1.05);
+  cursor: pointer;
 }

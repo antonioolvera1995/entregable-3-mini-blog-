@@ -32,7 +32,7 @@
                 <a class="nav-link">|</a>
             </li>
 
-            <li class="nav-item ">
+            <li class="nav-item marg-righ">
                 <a class="nav-link  select" routerLink="/login"  routerLinkActive="active">Iniciar sesión</a>
             </li>
         </ul>
@@ -41,11 +41,19 @@
         <div *ngIf="login" class="perfil">
             <figure>
                 <img [src]="userLoged.urlImage"
-                    alt="Imagen de perfil">
+                    alt="Imagen de perfil"
+                    routerLink="/sign-in" 
+                    >
                 <figcaption id="name-img" class="nav-link select" routerLink="/sign-in"  routerLinkActive="active" >{{userLoged.name}} {{userLoged.lastname}}</figcaption>
             </figure>
         </div>
         
+        <div *ngIf="login" (click)="logOut()" class="power-div">
+            <svg id="power-img" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+                <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+              </svg>
+        </div>
 
 
 </nav>
