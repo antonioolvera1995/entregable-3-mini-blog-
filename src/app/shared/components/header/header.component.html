@@ -1,5 +1,5 @@
 <nav *ngIf="!mobile" class="navbar navbar-expand-lg navbar-dark  header">
-    <a class="navbar-brand select" routerLink="" routerLinkActive="active">Publicaciones</a>
+    <a class="navbar-brand select" [ngStyle]="{'margin-left':'1.3em'}" routerLink="" routerLinkActive="active">HOME</a>
 
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
@@ -8,11 +8,11 @@
                 <a class="nav-link ">|</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link  select" routerLink="/new-post" routerLinkActive="active">Nuevo Post{{width}}</a>
+                <a class="nav-link  select" routerLink="/new-post" routerLinkActive="active">New Post</a>
             </li>
 
             <li class="nav-item ">
-                <a id="details" class="nav-link " *ngIf="detalles">Detalles</a>
+                <a id="details" class="nav-link " *ngIf="detalles">Details</a>
             </li>
         </ul>
 
@@ -66,14 +66,19 @@
             <img [src]="userLoged.urlImage" alt="Imagen de perfil" routerLink="/sign-in">
         </figure>
     </div>
+    <div *ngIf="!login" class="perfil">
+        <figure>
+           <span class="text-login-mobile" routerLink="/login" routerLinkActive="active">Log In</span>
+        </figure>
+    </div>
 
 
     <div class="div-menu">
-        <!-- <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <svg (click)="menuActive=true" *ngIf="!menuActive" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-              </svg> -->
+              </svg>
 
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor"
+        <svg (click)="menuActive=false" *ngIf="menuActive" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor"
             xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
                 d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
@@ -83,16 +88,16 @@
 
 </nav>
 
-<section class="drop-up">
+<section *ngIf="mobile && menuActive" class="drop-up">
     <div class="drop">
 
        
         <ul class="drop-ul">
-            <li>Home</li>
-            <li>New Post</li>
-            <li>Login</li>
-            <li>Sign In</li>
-            <li>Log Out</li>
+            <li (click)="menuActive=false" routerLink="/" routerLinkActive="active">Home</li>
+            <li (click)="menuActive=false" routerLink="/new-post" routerLinkActive="active">New Post</li>
+            <li *ngIf="!login" (click)="menuActive=false" routerLink="/sign-in" routerLinkActive="active">Sign In</li>
+            <li *ngIf="login" (click)="logOut();menuActive=false">Log Out</li>
+            <li *ngIf="!login" (click)="menuActive=false" routerLink="/login" routerLinkActive="active">Log In</li>
         </ul>
 
 

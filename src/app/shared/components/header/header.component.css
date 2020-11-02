@@ -113,7 +113,7 @@ figure > figcaption {
   }
 
   .perfil {
-    margin-left: 1em;
+    margin-left: 1.5em;
   }
 
   .div-menu {
@@ -122,7 +122,7 @@ figure > figcaption {
     justify-content: center;
     color: white;
     font-size: 3.5em;
-    margin-right: 0em;
+    margin-right: 0.3em;
 
     z-index: 3;
     transition-duration: 200ms;
@@ -163,6 +163,7 @@ figure > figcaption {
     background-color: rgb(12, 12, 12);
     z-index: 2;
     margin-top: 6em;
+    transition-duration: 300ms;
   }
 
   .drop-ul {
@@ -189,7 +190,7 @@ figure > figcaption {
     font-size: 2em;
     margin-top: 1em;
     margin-bottom: 1em;
-
+    outline-style: none;
     transition-duration: 50ms;
   }
   .drop-ul > li:last-child {
@@ -209,4 +210,21 @@ figure > figcaption {
     transform: scale(1.01,1.1);
   }
 
+}
+
+.text-login-mobile{
+  color: rgba(255, 255, 255, 0.8);
+font-size: 1.3em;
+  transition-duration: 60ms;
+  outline-style: none;
+}
+
+.text-login-mobile:hover{
+  color: rgb(255, 255, 255);
+
+}
+
+.text-login-mobile:active{
+  color: rgb(255, 255, 255);
+transform: scale(1.1, 1.1);
 }

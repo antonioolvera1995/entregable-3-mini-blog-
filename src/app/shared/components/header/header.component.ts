@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   width:number = 0;
 
   mobile:boolean = false;
+  menuActive:boolean = false;
   
 
   constructor(private loginService: LoginService, private storage:StorageService) { }
@@ -61,7 +62,10 @@ logOut(){
 }
 
 
+menuAction(){
 
+  
+}
 
 
 
