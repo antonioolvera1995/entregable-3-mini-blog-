@@ -22,3 +22,22 @@ small{
 .invalid{
     margin-bottom: 1em;
 }
+
+.sign-in{
+    margin-left: 1em;
+    transition-duration: 60ms;
+    user-select: none;
+}
+.sign-in:hover{
+    font-weight: 600;
+    cursor: pointer;
+}
+.sign-in:active{
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.3em;
+    
+}
+.nosel{
+    user-select: none;
+}

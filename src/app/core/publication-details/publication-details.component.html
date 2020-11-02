@@ -9,7 +9,7 @@
                 [src]="post.authorImage"
                 alt="Imagen de perfil">
             <div class="div-perfil-text">
-                <figcaption class="img-perfil-text-1">{{post.author}}</figcaption>
+                <figcaption class="img-perfil-text-1">{{post.author | titlecase}}</figcaption>
                 <figcaption class="img-perfil-text-2">Publicado el {{post.date | date:'dd/MM/yyyy'}} a las {{post.date | date:'HH:mm'}}</figcaption>
             </div>
         </figure>

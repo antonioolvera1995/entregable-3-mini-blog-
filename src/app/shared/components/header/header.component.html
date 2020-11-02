@@ -25,7 +25,7 @@
         <ul *ngIf="!login" class="navbar-nav mr-auto">
 
             <li class="nav-item ">
-                <a class="nav-link select"routerLink="/sign-in"  routerLinkActive="active">Registrarse</a>
+                <a class="nav-link select"routerLink="/sign-in"  routerLinkActive="active">Sign In</a>
             </li>
 
             <li class="nav-item ">
@@ -33,7 +33,7 @@
             </li>
 
             <li class="nav-item marg-righ">
-                <a class="nav-link  select" routerLink="/login"  routerLinkActive="active">Iniciar sesión</a>
+                <a class="nav-link  select" routerLink="/login"  routerLinkActive="active">Log In</a>
             </li>
         </ul>
 
@@ -44,7 +44,7 @@
                     alt="Imagen de perfil"
                     routerLink="/sign-in" 
                     >
-                <figcaption id="name-img" class="nav-link select" routerLink="/sign-in"  routerLinkActive="active" >{{userLoged.name}} {{userLoged.lastname}}</figcaption>
+                <figcaption id="name-img" class="nav-link select" routerLink="/sign-in"  routerLinkActive="active" >{{userLoged.name | titlecase}} {{userLoged.lastname | titlecase}}</figcaption>
             </figure>
         </div>
         
