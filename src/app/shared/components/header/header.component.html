@@ -1,6 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark  header">
-    <a class="navbar-brand select"  routerLink=""  routerLinkActive="active">Publicaciones</a>
-
+<nav *ngIf="!mobile" class="navbar navbar-expand-lg navbar-dark  header">
+    <a class="navbar-brand select" routerLink="" routerLinkActive="active">Publicaciones</a>
 
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
@@ -9,7 +8,7 @@
                 <a class="nav-link ">|</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link  select"   routerLink="/new-post"  routerLinkActive="active">Nuevo Post</a>
+                <a class="nav-link  select" routerLink="/new-post" routerLinkActive="active">Nuevo Post{{width}}</a>
             </li>
 
             <li class="nav-item ">
@@ -17,43 +16,85 @@
             </li>
         </ul>
 
-
     </div>
 
 
-      
-        <ul *ngIf="!login" class="navbar-nav mr-auto">
+    <ul *ngIf="!login" class="navbar-nav mr-auto">
 
-            <li class="nav-item ">
-                <a class="nav-link select"routerLink="/sign-in"  routerLinkActive="active">Sign In</a>
-            </li>
+        <li class="nav-item ">
+            <a class="nav-link select" routerLink="/sign-in" routerLinkActive="active">Sign In</a>
+        </li>
 
-            <li class="nav-item ">
-                <a class="nav-link">|</a>
-            </li>
+        <li class="nav-item ">
+            <a class="nav-link">|</a>
+        </li>
 
-            <li class="nav-item marg-righ">
-                <a class="nav-link  select" routerLink="/login"  routerLinkActive="active">Log In</a>
-            </li>
-        </ul>
+        <li class="nav-item marg-righ">
+            <a class="nav-link  select" routerLink="/login" routerLinkActive="active">Log In</a>
+        </li>
+    </ul>
 
-    
-        <div *ngIf="login" class="perfil">
-            <figure>
-                <img [src]="userLoged.urlImage"
-                    alt="Imagen de perfil"
-                    routerLink="/sign-in" 
-                    >
-                <figcaption id="name-img" class="nav-link select" routerLink="/sign-in"  routerLinkActive="active" >{{userLoged.name | titlecase}} {{userLoged.lastname | titlecase}}</figcaption>
-            </figure>
-        </div>
-        
-        <div *ngIf="login" (click)="logOut()" class="power-div">
-            <svg id="power-img" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
-                <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
-              </svg>
-        </div>
+
+    <div *ngIf="login" class="perfil">
+        <figure>
+            <img [src]="userLoged.urlImage" alt="Imagen de perfil" routerLink="/sign-in">
+            <figcaption id="name-img" class="nav-link select" routerLink="/sign-in" routerLinkActive="active">
+                {{userLoged.name | titlecase}} {{userLoged.lastname | titlecase}}</figcaption>
+        </figure>
+    </div>
+
+    <div *ngIf="login" (click)="logOut()" class="power-div">
+        <svg id="power-img" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z" />
+            <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z" />
+        </svg>
+    </div>
 
 
 </nav>
+
+
+
+
+
+<nav *ngIf="mobile" class="navbar navbar-expand-lg navbar-dark  header">
+
+
+    <div *ngIf="login" class="perfil">
+        <figure>
+            <img [src]="userLoged.urlImage" alt="Imagen de perfil" routerLink="/sign-in">
+        </figure>
+    </div>
+
+
+    <div class="div-menu">
+        <!-- <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+              </svg> -->
+
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+        </svg>
+    </div>
+
+
+</nav>
+
+<section class="drop-up">
+    <div class="drop">
+
+       
+        <ul class="drop-ul">
+            <li>Home</li>
+            <li>New Post</li>
+            <li>Login</li>
+            <li>Sign In</li>
+            <li>Log Out</li>
+        </ul>
+
+
+    </div>
+</section>

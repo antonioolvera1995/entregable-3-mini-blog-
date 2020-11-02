@@ -13,6 +13,9 @@ export class HeaderComponent implements OnInit {
   userLoged:SignIn;
   public login: boolean = false;
   detalles:boolean = false;
+  width:number = 0;
+
+  mobile:boolean = false;
   
 
   constructor(private loginService: LoginService, private storage:StorageService) { }
@@ -27,6 +30,16 @@ export class HeaderComponent implements OnInit {
 
   start = setInterval(() => {
 
+    //reponsive
+    this.width = window.innerWidth
+    if (this.width <= 992) {
+      this.mobile = true;
+    }else{
+      this.mobile = false;
+    }
+
+
+    //reveal-text
     if (window.location.pathname.search('publication-details')>-1) {
       this.detalles = true;
     } else {
