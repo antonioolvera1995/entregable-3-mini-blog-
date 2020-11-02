@@ -153,7 +153,7 @@ export class StorageService {
         let post: NewPostModel = new NewPostModel();
 
         post.title = 'La aventura sigue tras terminar Pokémon: Let’s Go, Pikachu! y Pokémon: Let’s Go, Eevee!';
-        post.date = `Mon Nov 0${this.randomNumber()} 2020 0${this.randomNumber()}:52:46 GMT+0100 (hora estándar de Europa central)`;
+        post.date = `Mon Nov 0${this.randomNumber()} 2020 0${this.randomNumber()}:0${this.randomNumber()}:46 GMT+0100 (hora estándar de Europa central)`;
         post.tags = ['articuno', 'moltres', 'zapdos'];
         post.subtitle = '¡Los Pokémon legendarios llegan volando!';
         post.urlImage = 'https://i.pinimg.com/originals/a8/a4/56/a8a4561433ee9fd5e4aef69e930bff79.gif';
@@ -169,7 +169,7 @@ export class StorageService {
     
 
         post.title = 'This Is Fine. No, Really.';
-        post.date = `Mon Nov 0${this.randomNumber()} 2020 0${this.randomNumber()}:52:46 GMT+0100 (hora estándar de Europa central)`;
+        post.date = `Mon Nov 0${this.randomNumber()} 2020 0${this.randomNumber()}:0${this.randomNumber()}:46 GMT+0100 (hora estándar de Europa central)`;
         post.tags = ['President', 'danger', 'tricks'];
         post.subtitle = 'I just voted in the least important election of my lifetime';
         post.urlImage = 'https://miro.medium.com/max/1000/1*xSrN_hk7rXRyrUaNKfIEvg.jpeg';
@@ -185,7 +185,7 @@ export class StorageService {
         this.savePost(post);
         post = new NewPostModel();
         post.title = '20 Things Most People Learn Too Late In Life';
-        post.date = `Mon Nov 0${this.randomNumber()} 2020 0${this.randomNumber()}:52:46 GMT+0100 (hora estándar de Europa central)`;
+        post.date = `Mon Nov 0${this.randomNumber()} 2020 0${this.randomNumber()}:0${this.randomNumber()}:46 GMT+0100 (hora estándar de Europa central)`;
         post.tags = ['dream', 'friends', 'potential'];
         post.subtitle = 'But always, life is a movement forward.';
         post.urlImage = 'https://miro.medium.com/max/700/1*BO36vszZiTsOZl0EU6lwLA.jpeg';
@@ -215,6 +215,24 @@ export class StorageService {
         this.savePost(post);
         
 
+        post = new NewPostModel();
+        post.title = '39 Websites That Can Make You Unbelievably Smarter Just in 10 Minutes a Day';
+        post.date = `Mon Nov 0${this.randomNumber()} 2020 0${this.randomNumber()}:0${this.randomNumber()}:46 GMT+0100 (hora estándar de Europa central)`;
+        post.tags = ['WEBSITES'];
+        post.subtitle = 'The best places on the web that can help you expand your mind';
+        post.urlImage = 'https://miro.medium.com/max/700/1*tFJ8k3ddp-ugpOmyVuRLFA.jpeg';
+        post.textImage = 'Image: Rawpixel';
+        post.description = `“Intellectual growth should commence at birth and cease only at death.” Albert Einstein said that. 
+        Lifelong learning is one of the best ways to improve your life and career. Self-learning can enrich your knowledge every day.
+         And the good news is that you access free online resources anywhere to help you become a better version of yourself.
+          Your career, and personal life will never be the same if you can commit to some of these awesome resources in just ten minutes a day. 
+          The web is increasingly becoming a powerful resource that can easily help you learn something new everyday. 
+          There is a great chance you’ll be able to put at least one of these awesome sites to good use and come out as a better person than you were last year. 
+          I consistently visit some of these sites every week to learn about new topics, ideas, concepts, and mental models to improve myself.`;
+        post.author = 'Antonio Olvera Fernández, Full stack developer, 25'
+        post.authorImage = 'assets/images/Foto-Carnet.png'
+        post.id = 3;
+        this.savePost(post);
 
       
       }

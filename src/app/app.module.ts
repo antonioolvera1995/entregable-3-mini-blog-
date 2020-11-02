@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { PostCardComponent } from './shared/components/post-card/post-card.component';
-import { DetailsCardComponent } from './shared/components/details-card/details-card.component';
 import { PublicationsComponent } from './core/publications/publications.component';
 import { NewPostComponent } from './core/new-post/new-post.component';
 import { LoginComponent } from './core/login/login.component';
@@ -27,7 +26,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     PostCardComponent,
-    DetailsCardComponent,
     PublicationsComponent,
     NewPostComponent,
     LoginComponent,

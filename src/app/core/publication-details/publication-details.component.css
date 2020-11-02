@@ -97,6 +97,7 @@ margin-top: 3em;
     color: rgba(17, 17, 17, 0.479);
     transition-duration: 100ms;
     user-select: none;
+    cursor: pointer;
 }
 .img-publication-text:hover{
     color: rgb(17, 17, 17)

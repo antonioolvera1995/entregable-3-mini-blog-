@@ -1,0 +1,30 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+main {
+  display: grid;
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  grid-template-areas:
+    'hed'
+    'bod'
+    'foot';
+    grid-template-rows: 9em auto 9em;
+    grid-template-columns: 100%;
+}
+
+.hed {
+  grid-area: hed;
+}
+
+.bod {
+  
+  grid-area: bod;
+}
+
+.foot {
+  
+  grid-area: foot;
+}

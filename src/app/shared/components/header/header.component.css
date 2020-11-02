@@ -5,6 +5,8 @@
 .header {
   height: 6em;
   background-color: black;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.7);
+  margin-bottom: 3em;
 }
 
 .select {
@@ -38,10 +40,7 @@ figure > img {
   border-radius: 0.3em;
   transition-duration: 50ms;
   outline-style: none;
-
-  border-color: rgba(255, 255, 255, 0.541);
-  border-style: solid;
-  border-width: 0.1em;
+  cursor: pointer;
 }
 figure > img:hover {
   border-color: white;
@@ -63,6 +62,7 @@ figure > figcaption {
 
 #name-img {
   color: rgba(255, 255, 255, 0.507);
+  cursor: pointer;
 }
 #name-img:hover {
   color: rgb(255, 255, 255);
@@ -99,8 +99,132 @@ figure > figcaption {
   color: rgb(255, 255, 255);
 }
 
-
-.marg-righ{
+.marg-righ {
   margin-right: 2em;
-  
+}
+
+/* ----------------------------------mobile-------------------------------------------------- */
+
+@media only screen and (max-width: 992px) {
+  .header {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .perfil {
+    margin-left: 1.5em;
+  }
+
+  .div-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3.5em;
+    margin-right: 0.3em;
+
+    z-index: 3;
+    transition-duration: 200ms;
+  }
+
+  .div-menu:hover {
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: white;
+    border-radius: 0.3em;
+    transition-duration: 200ms;
+  }
+
+  .div-menu:active {
+    transform: scale(1.1, 1.1);
+    transition-duration: 60ms;
+  }
+
+  .drop-up {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 1;
+
+    transition-duration: 300ms;
+  }
+
+  .drop {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    width: 80%;
+    background-color: rgb(12, 12, 12);
+    z-index: 2;
+    margin-top: 6em;
+    transition-duration: 300ms;
+  }
+
+  .drop-ul {
+
+
+    padding: 0%;
+    padding-left: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    margin-top: 2em;
+    
+  }
+
+  .drop-ul > li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    outline-style: none;
+    transition-duration: 50ms;
+  }
+  .drop-ul > li:last-child {
+
+    margin-top: auto;
+    margin-bottom: 8em;
+  }
+
+  .drop-ul > li:hover{
+    color: white;
+    cursor: pointer;
+  }
+
+  .drop-ul > li:active{
+    color: white;
+    cursor: pointer;
+    transform: scale(1.01,1.1);
+  }
+
+}
+
+.text-login-mobile{
+  color: rgba(255, 255, 255, 0.8);
+font-size: 1.3em;
+  transition-duration: 60ms;
+  outline-style: none;
+}
+
+.text-login-mobile:hover{
+  color: rgb(255, 255, 255);
+
+}
+
+.text-login-mobile:active{
+  color: rgb(255, 255, 255);
+transform: scale(1.1, 1.1);
 }
