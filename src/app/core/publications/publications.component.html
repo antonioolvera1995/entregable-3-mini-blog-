@@ -2,15 +2,15 @@
 <main class="size">
 
 <div class="container">
-<div class="card-deck" *ngIf="show">
-<app-post-card *ngFor="let item of posts; index as i"
-[urlImage] = "posts[i].urlImage"
-[title] = "posts[i].title"
-[description] = "posts[i].description"
-[date] = "posts[i].date"
-[idInput]="posts[i].id"
-(idOutput)="goDetails($event)"
-></app-post-card>
-</div>
+    <div class="card-deck" *ngIf="show">
+        <app-post-card *ngFor="let item of posts; index as i"
+            [urlImage] = "posts[i].urlImage"
+            [title] = "posts[i].title"
+            [description] = "posts[i].description"
+            [date] = "posts[i].date"
+            [idInput]="posts[i].id"
+            (idOutput)="goDetails($event)"
+        ></app-post-card>
+    </div>
 </div>
 </main>

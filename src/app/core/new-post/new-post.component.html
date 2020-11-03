@@ -24,10 +24,17 @@
                     <div *ngFor="let tag of getTags.controls;index as i">
 
                         <div class="roww">
-                            <input type="text" class="input-array form-control" id="tagg" [formControlName]="i"
+                            <input type="text" class="input-array form-control" id="tagg"
+                             [formControlName]="i"
                                 (keyup)="addTags($event)"
                                 [ngClass]="{'input-array-hide': i != getTags.controls.length-1,
-                         'is-valid': vaTag && getTags.controls.length-1 === i, 'is-invalid': invaTag && getTags.controls.length-1 === i}">
+                         'is-valid': vaTag && getTags.controls.length-1 === i, 
+                         'is-invalid': invaTag && getTags.controls.length-1 === i,
+                         'ocultar': getTags.controls.length-1 === i
+                        }"
+                         
+                         >
+
                             <svg (click)="removeTags(i)" width="1em" height="1em" viewBox="0 0 16 16"
                                 class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"

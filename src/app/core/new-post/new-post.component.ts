@@ -34,8 +34,9 @@ export class NewPostComponent implements OnInit {
     });
   }
   get getTags(): FormArray { return this.formg.get('tags') as FormArray; }
-  addTags(e) {
 
+
+  addTags(e) {
 
     if (e.key.toLowerCase() === 'enter' && this.getTags.controls.length < 5 && this.getTags.status === 'VALID') {
       this.getTags.push(this.fb.control('', [Validators.required]));
@@ -51,26 +52,38 @@ export class NewPostComponent implements OnInit {
       }
 
 
+      //----------------------------------------Antes---------consejo de gonzalo-----------------------
+      // setTimeout(() => {
+      //   var dom = document.getElementsByTagName("*");
+      //   for (let i = 0; i < dom.length; i++) {
+      //     const element: HTMLInputElement = dom[i] as HTMLInputElement;
+      //     let atri0 = targett.getAttribute('ng-reflect-name');
+      //     let atri = element.getAttribute('ng-reflect-name');
+
+
+      //     if (Number(atri) > Number(atri0)) {
+      //       element.focus();
+
+      //     }
+      //   }
+      // }, 100);
+
+      //----------------------------------------Despues----------consejo de gonzalo----------------------
       setTimeout(() => {
-        var dom = document.getElementsByTagName("*");
+        var dom = document.getElementsByClassName('ocultar');
         for (let i = 0; i < dom.length; i++) {
           const element: HTMLInputElement = dom[i] as HTMLInputElement;
-          let atri0 = targett.getAttribute('ng-reflect-name');
-          let atri = element.getAttribute('ng-reflect-name');
-          
-
-          if (Number(atri) > Number(atri0)) {
+          if (i === dom.length - 1) {
             element.focus();
-          
           }
         }
       }, 100);
-
-
-
     }
+//----------------------------------------------------------------------------------------------------
 
   }
+
+
 
   removeTags(i: number) {
     if (this.getTags.controls.length > 1) {
@@ -111,21 +124,21 @@ export class NewPostComponent implements OnInit {
 
   }
 
-get vaTitle(){ return this.formg.get('title').status === 'VALID' && this.formg.get('title').touched}
-get invaTitle(){ return this.formg.get('title').status === 'INVALID' && this.formg.get('title').touched}
+  get vaTitle() { return this.formg.get('title').status === 'VALID' && this.formg.get('title').touched }
+  get invaTitle() { return this.formg.get('title').status === 'INVALID' && this.formg.get('title').touched }
 
-get vaTag(){ return this.formg.get('tags').status === 'VALID' && this.formg.get('tags').touched}
-get invaTag(){ return this.formg.get('tags').status === 'INVALID' && this.formg.get('tags').touched}
+  get vaTag() { return this.formg.get('tags').status === 'VALID' && this.formg.get('tags').touched }
+  get invaTag() { return this.formg.get('tags').status === 'INVALID' && this.formg.get('tags').touched }
 
-get vaSubtitle(){ return this.formg.get('subtitle').status === 'VALID' && this.formg.get('subtitle').touched}
-get invaSubtitle(){ return this.formg.get('subtitle').status === 'INVALID' && this.formg.get('subtitle').touched}
+  get vaSubtitle() { return this.formg.get('subtitle').status === 'VALID' && this.formg.get('subtitle').touched }
+  get invaSubtitle() { return this.formg.get('subtitle').status === 'INVALID' && this.formg.get('subtitle').touched }
 
-get vaUrlImage(){ return this.formg.get('urlImage').status === 'VALID' && this.formg.get('urlImage').touched}
-get invaUrlImage(){ return this.formg.get('urlImage').status === 'INVALID' && this.formg.get('urlImage').touched}
+  get vaUrlImage() { return this.formg.get('urlImage').status === 'VALID' && this.formg.get('urlImage').touched }
+  get invaUrlImage() { return this.formg.get('urlImage').status === 'INVALID' && this.formg.get('urlImage').touched }
 
-get vaTextImage(){ return this.formg.get('textImage').status === 'VALID' && this.formg.get('textImage').touched}
-get invaTextImage(){ return this.formg.get('textImage').status === 'INVALID' && this.formg.get('textImage').touched}
+  get vaTextImage() { return this.formg.get('textImage').status === 'VALID' && this.formg.get('textImage').touched }
+  get invaTextImage() { return this.formg.get('textImage').status === 'INVALID' && this.formg.get('textImage').touched }
 
-get vaDescription (){ return this.formg.get('description').status === 'VALID' && this.formg.get('description').touched}
-get invaDescription (){ return this.formg.get('description').status === 'INVALID' && this.formg.get('description').touched}
+  get vaDescription() { return this.formg.get('description').status === 'VALID' && this.formg.get('description').touched }
+  get invaDescription() { return this.formg.get('description').status === 'INVALID' && this.formg.get('description').touched }
 }
